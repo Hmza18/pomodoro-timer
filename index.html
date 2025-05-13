@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+</head>
+<body class="light-mode">
+    <div class="background-container">
+        <video id="liveBackground" class="live-background" loop muted playsinline>
+            <source src="assets/background.mp4" type="video/mp4">
+        </video>
+        <div class="background-overlay"></div>
+    </div>
+
+    <div class="toggle-buttons">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <div class="icon-container">
+                <span class="light-icon">🌞</span>
+                <span class="dark-icon">🌙</span>
+            </div>
+        </button>
+        <button id="backgroundToggle" class="background-toggle" aria-label="Toggle live background">
+            <span class="background-icon">🎥</span>
+            <span class="background-text">Live Background</span>
+        </button>
+    </div>
+
+    <main class="container">
+        <div class="timer-container">
+            <h1>Pomodoro Timer</h1>
+            
+            <div class="session-status" id="sessionStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Work Session</span>
+            </div>
+
+            <div class="timer-settings">
+                <div class="settings-row">
+                    <div class="setting-group">
+                        <label for="work-duration">Work Duration</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="work-duration" min="1" max="60" value="25">
+                            <span class="input-suffix">min</span>
+                        </div>
+                    </div>
+                    <div class="setting-group">
+                        <label for="break-duration">Break Duration</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="break-duration" min="1" max="30" value="5">
+                            <span class="input-suffix">min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timer-display">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+
+            <div class="timer-controls">
+                <button id="startBtn" class="btn primary-btn">Start</button>
+                <button id="pauseBtn" class="btn secondary-btn" style="display: none;">Pause</button>
+                <button id="resetBtn" class="btn secondary-btn">Reset</button>
+            </div>
+
+            <div class="session-counter">
+                Sessions completed today: <span id="sessionCount">0</span>
+            </div>
+
+            <div class="audio-controls">
+                <button id="toggleMusic" class="btn music-btn">
+                    <span class="music-icon">🎵</span>
+                    <span class="music-text">Play Lofi</span>
+                </button>
+            </div>
+
+            <div id="completionMessage" class="completion-message"></div>
+        </div>
+    </main>
+
+    <footer class="trademark">
+        <a href="https://instagram.com/hamza.mahari" target="_blank" rel="noopener noreferrer" aria-label="Visit Hamza's Instagram">
+            Built by Hamza — @hamza.mahari on Instagram
+        </a>
+    </footer>
+
+    <!-- Audio element for background music -->
+    <audio id="lofiMusic" loop>
+        <source src="assets/lofi.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="theme-transition-wrapper"></div>
+
+    <script>
+        // Add no-transition class during initial load
+        document.body.classList.add('no-transition');
+        setTimeout(() => {
+            document.body.classList.remove('no-transition');
+        }, 100);
+
+        // Initialize theme from localStorage with transition prevention
+        const savedTheme = localStorage.getItem('pomodoroTheme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            document.querySelector('.dark-icon').style.opacity = '1';
+            document.querySelector('.light-icon').style.opacity = '0';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 
