@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pomodoro Timer
 
 A beautiful, customizable Pomodoro timer built with vanilla HTML, CSS, and JavaScript. This timer helps you stay focused and productive using the Pomodoro Technique.
@@ -47,3 +48,7 @@ This project is open source and available under the MIT License.
 - Lofi music from Pixabay
 - Font: Inter (Google Fonts)
 - Icons: Emoji characters
+=======
+# pomodoro-timer
+An aesthetic Pomodoro timer with music, light/dark mode, and anime-style backgrounds.
+>>>>>>> d823c53b91b78a475c4836809283f27643d7d789
