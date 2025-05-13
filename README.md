@@ -46,4 +46,4 @@ This project is open source and available under the MIT License.
 
 - Lofi music from Pixabay
 - Font: Inter (Google Fonts)
-- Icons: Emoji characters 
+- Icons: Emoji characters
